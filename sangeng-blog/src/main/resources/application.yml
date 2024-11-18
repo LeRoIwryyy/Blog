@@ -1,0 +1,33 @@
+server:
+  port: 7777
+
+spring:
+  # 数据库连接信息
+  datasource:
+    url: jdbc:mysql://localhost:3306/sg_blog?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  servlet:
+    # 文件上传
+    multipart:
+      # 单个上传文件的最大允许大小
+      max-file-size: 20MB
+      # HTTP请求中包含的所有文件的总大小的最大允许值
+      max-request-size: 20MB
+
+mybatis-plus:
+  configuration:
+    # 日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      # 逻辑删除的字段
+      logic-delete-field: delFlag
+      # 代表已删除的值
+      logic-delete-value: 1
+      # 代表未删除的值
+      logic-not-delete-value: 0
+      # 主键自增策略，以mysql数据库为准
+      id-type: auto
