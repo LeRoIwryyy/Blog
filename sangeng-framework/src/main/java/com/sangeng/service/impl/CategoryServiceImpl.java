@@ -10,12 +10,10 @@ import com.sangeng.mapper.CategoryMapper;
 import com.sangeng.service.ArticleService;
 import com.sangeng.service.CategoryService;
 import com.sangeng.utils.BeanCopyUtils;
-import com.sangeng.vo.CategoryVO;
+import com.sangeng.vo.CategoryVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -55,7 +53,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
                 .collect(Collectors.toList());
 
         //封装成CategoryVo实体类后返回给前端，CategoryVo的作用是只返回前端需要的字段。BeanCopyUtils是我们写的工具类
-        List<CategoryVO> categoryVOS = BeanCopyUtils.copyBeanList(categories, CategoryVO.class);
+        List<CategoryVo> categoryVOS = BeanCopyUtils.copyBeanList(categories, CategoryVo.class);
         return ResponseResult.okResult(categoryVOS);
     }
 }

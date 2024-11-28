@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 //返回给前端特定的字段
-public class HotArticleVO {
+public class HotArticleVo {
 
     private Long id;
     //标题

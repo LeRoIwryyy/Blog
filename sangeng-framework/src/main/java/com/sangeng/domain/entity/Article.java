@@ -3,6 +3,7 @@ package com.sangeng.domain.entity;
 
 import java.util.Date;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,12 @@ public class Article {
     private String summary;
     //所属分类id
     private Long categoryId;
+
+    //增加一个字段，为categoryName，由categoryId来查询出
+    //由于数据库没有category_name字段，所以要用注解指定一下字段
+    @TableField(exist = false)//代表这个字段在数据库中不存在，避免MyBatisPlus在查询时报错
+    private String categoryName;
+
     //缩略图
     private String thumbnail;
     //是否置顶（0否，1是）
